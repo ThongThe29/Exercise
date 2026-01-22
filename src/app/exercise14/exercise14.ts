@@ -4,6 +4,7 @@ import { CatalogService } from '../catalog.service';
 
 @Component({
   selector: 'app-exercise14',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './exercise14.html',
   styleUrl: './exercise14.css',

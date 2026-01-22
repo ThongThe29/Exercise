@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-learndirective',
-  imports: [NgIf],
+  standalone: false,
   templateUrl: './learndirective.html',
-  styleUrl: './learndirective.css',
+  styleUrls: ['./learndirective.css'],
 })
 export class Learndirective {
-  flag_value:number=1
-  changeView()
-  {
-    if(this.flag_value==1)
-      this.flag_value=2;
-    else
-      this.flag_value=1;
+  flag_value: number = 1;
+
+  changeView() {
+    this.flag_value = this.flag_value === 1 ? 2 : 1;
   }
+
+  products = ["thuốc lá", "thuốc lào", "thuốc trị hôi nách"];
+
+  products2 = [
+    { id: 1, name: "thuốc lá" },
+    { id: 2, name: "thuốc lào" },
+    { id: 3, name: "thuốc trị hôi nách" }
+  ];
 }

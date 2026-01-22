@@ -1,43 +1,22 @@
-<div class="container">
-  <h1>My Angular App</h1>
+<!-- Menu Navigation với Dropdown -->
+<nav class="navbar">
+    <a routerLink="demo">HOME</a>
+    <a routerLink="khach-hang-1">CUSTOMER</a>
+    <a href="#">PRODUCT</a>
+    <div class="dropdown">
+        <a href="#">EXERCISE</a>
+        <div class="dropdown-content">
+            <a routerLink="service-product-image-event">Exercise 13</a>
+            <a routerLink="exercise14">Exercise 14</a>
+            <a routerLink="ex18">Exercise 18</a>
+            <a routerLink="ex19">Exercise 19</a>
+        </div>
+    </div>
+    <a href="#">JAVASCRIPT</a>
+    <a href="#">HTML DOM</a>
+    <a href="#">NGÔN NGỮ ASP</a>
+    <a routerLink="gioi-thieu">ABOUT</a>
+</nav>
 
-  <section>
-    <h2>About</h2>
-    <app-about></app-about>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>PTB1 - Phương trình bậc 1</h2>
-    <app-ptb1></app-ptb1>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Learn Binding</h2>
-    <app-learnbinding></app-learnbinding>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Learn Directive</h2>
-    <app-learndirective></app-learndirective>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>List Customer</h2>
-    <app-listcustomer></app-listcustomer>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Exercise 14 - Product Catalog</h2>
-    <app-exercise14></app-exercise14>
-  </section>
-</div>
+<!-- Component con sẽ hiển thị ở đây -->
+<router-outlet></router-outlet>

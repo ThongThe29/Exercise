@@ -8,9 +8,9 @@ describe('Learnbinding', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Learnbinding]
+      declarations: [Learnbinding]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(Learnbinding);
     component = fixture.componentInstance;
