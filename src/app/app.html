@@ -3,20 +3,39 @@
     <a routerLink="demo">HOME</a>
     <a routerLink="khach-hang-1">CUSTOMER</a>
     <a href="#">PRODUCT</a>
+
     <div class="dropdown">
-        <a href="#">EXERCISE</a>
+        <button class="dropbtn">EXERCISE</button>
         <div class="dropdown-content">
             <a routerLink="service-product-image-event">Exercise 13</a>
             <a routerLink="exercise14">Exercise 14</a>
             <a routerLink="ex18">Exercise 18</a>
             <a routerLink="ex19">Exercise 19</a>
+            <a routerLink="ex26">Exercise 26</a>
         </div>
     </div>
-    <a href="#">JAVASCRIPT</a>
+
+    <div class="dropdown">
+        <button class="dropbtn">FORMS</button>
+        <div class="dropdown-content">
+            <a href="#">FORM</a>
+            <a href="#">REACTIVE FORM</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">EXTERNAL API</button>
+        <div class="dropdown-content">
+            <a routerLink="ex26">Ex 26</a>
+            <a href="#">Ex 27</a>
+        </div>
+    </div>
+
     <a href="#">HTML DOM</a>
     <a href="#">NGÔN NGỮ ASP</a>
     <a routerLink="gioi-thieu">ABOUT</a>
 </nav>
+
 
 <!-- Component con sẽ hiển thị ở đây -->
 <router-outlet></router-outlet>

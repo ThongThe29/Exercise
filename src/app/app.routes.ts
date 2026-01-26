@@ -12,6 +12,7 @@ import { Ex19 } from './ex19/ex19';
 import { Productdetail } from './productdetail/productdetail';
 import { Product } from './ex19/product/product';
 import { Listproduct } from './listproduct/listproduct';
+import { FakeProduct } from './fake-product/fake-product';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -38,6 +39,9 @@ export const routes: Routes = [
 
   // Exercise 18 route
   { path: "ex18", component: Ex18 },
+
+  // Exercise 26 route
+  { path: "ex26", component: FakeProduct },
 
   // Wildcard - route không tìm thấy
   { path: "**", component: Notfound }
