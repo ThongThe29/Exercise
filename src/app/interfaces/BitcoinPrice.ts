@@ -1,22 +1,13 @@
+import { IBitcoinTime } from './BitcoinTime';
+import { IBpi } from './Bpi';
+
 export interface IBitcoinPrice {
-    time: {
-        updated: string;
-        updatedISO: string;
-        updateduk: string;
-    };
+    time: IBitcoinTime;
     disclaimer: string;
     chartName: string;
     bpi: {
-        USD: Currency;
-        GBP: Currency;
-        EUR: Currency;
+        USD: IBpi;
+        GBP: IBpi;
+        EUR: IBpi;
     };
-}
-
-export interface Currency {
-    code: string;
-    symbol: string;
-    rate: string;
-    description: string;
-    rate_float: number;
 }
