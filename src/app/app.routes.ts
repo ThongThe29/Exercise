@@ -13,6 +13,10 @@ import { Productdetail } from './productdetail/productdetail';
 import { Product } from './ex19/product/product';
 import { Listproduct } from './listproduct/listproduct';
 import { FakeProduct } from './fake-product/fake-product';
+import { Ex27 } from './ex27/ex27';
+import { Ex28 } from './ex28/ex28';
+import { TemplateFormComponent } from './template-form/template-form';
+import { ReactiveFormComponent } from './reactive-form/reactive-form';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -42,6 +46,16 @@ export const routes: Routes = [
 
   // Exercise 26 route
   { path: "ex26", component: FakeProduct },
+
+  // Exercise 27 route
+  { path: "ex27", component: Ex27 },
+
+  // Exercise 28 route
+  { path: "ex28", component: Ex28 },
+
+  // Forms routes - Template & Reactive
+  { path: "template-form", component: TemplateFormComponent },
+  { path: "reactive-form", component: ReactiveFormComponent },
 
   // Wildcard - route không tìm thấy
   { path: "**", component: Notfound }
