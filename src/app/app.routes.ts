@@ -17,6 +17,7 @@ import { Ex27 } from './ex27/ex27';
 import { Ex28 } from './ex28/ex28';
 import { TemplateFormComponent } from './template-form/template-form';
 import { ReactiveFormComponent } from './reactive-form/reactive-form';
+import { Books } from './books/books';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -56,6 +57,10 @@ export const routes: Routes = [
   // Forms routes - Template & Reactive
   { path: "template-form", component: TemplateFormComponent },
   { path: "reactive-form", component: ReactiveFormComponent },
+
+  // Books route (Exercise 39)
+  { path: "books", component: Books },
+  { path: "ex39", component: Books },
 
   // Wildcard - route không tìm thấy
   { path: "**", component: Notfound }
