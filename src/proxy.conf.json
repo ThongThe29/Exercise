@@ -7,5 +7,17 @@
         "secure": true,
         "changeOrigin": true,
         "logLevel": "debug"
+    },
+    {
+        "context": [
+            "/api/bitcoin"
+        ],
+        "target": "https://api.alternative.me",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/bitcoin": "/v1/ticker/?limit=1"
+        },
+        "logLevel": "debug"
     }
 ]

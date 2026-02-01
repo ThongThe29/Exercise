@@ -21,8 +21,12 @@ export class Ex28 implements OnInit {
 
   loadData(): void {
     this._service.getBitcoinData().subscribe({
-      next: (data) => { this.bitcoinData = data; },
+      next: (data) => {
+        console.log('✅ Data received:', data);
+        this.bitcoinData = data;
+      },
       error: (err) => {
+        console.error('❌ Error:', err);
         this.errMessage = err.message;
       }
     });
