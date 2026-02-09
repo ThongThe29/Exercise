@@ -1,0 +1,30 @@
+<div class="header-title">Fake Product Data</div>
+
+<table class="product-table" *ngIf="data">
+    <thead>
+        <tr>
+            <th class="col-id">Id</th>
+            <th>title</th>
+            <th class="col-price">price</th>
+            <th>description</th>
+            <th>category</th>
+            <th>image</th>
+            <th class="col-rating">rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of data">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.category}}</td>
+            <td><img [src]="p.image" class="product-image"></td>
+            <td>{{p.rating?.rate}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="errMessage" style="color: red; text-align: center;">
+    {{errMessage}}
+</div>

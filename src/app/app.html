@@ -1,4 +1,54 @@
-<nav>
-  <a routerLink="/exercise10">Exercise 10 - Lunar Year</a>
+<!-- Menu Navigation với Dropdown -->
+<nav class="navbar">
+    <a routerLink="demo">HOME</a>
+    <a routerLink="khach-hang-1">CUSTOMER</a>
+    <a href="#">PRODUCT</a>
+
+    <div class="dropdown">
+        <button class="dropbtn">EXERCISE</button>
+        <div class="dropdown-content">
+            <a routerLink="service-product-image-event">Exercise 13</a>
+            <a routerLink="exercise14">Exercise 14</a>
+            <a routerLink="ex18">Exercise 18</a>
+            <a routerLink="ex19">Exercise 19</a>
+            <a routerLink="ex26">Exercise 26</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">FORMS</button>
+        <div class="dropdown-content">
+            <a routerLink="template-form">FORM</a>
+            <a routerLink="reactive-form">REACTIVE FORM</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">INTERNAL API</button>
+        <div class="dropdown-content">
+            <a routerLink="ex39">Ex 39</a>
+            <a routerLink="ex41">Ex 41</a>
+            <a routerLink="ex43">Ex 43</a>
+            <a routerLink="ex50">Ex 50</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">EXTERNAL API</button>
+        <div class="dropdown-content">
+            <a routerLink="ex26">Ex 26</a>
+            <a routerLink="ex27">Ex 27</a>
+            <a routerLink="ex28">Ex 28</a>
+            <a routerLink="ex42">Ex 42</a>
+            <a routerLink="ex49">Ex 49</a>
+        </div>
+    </div>
+
+    <a href="#">HTML DOM</a>
+    <a href="#">NGÔN NGỮ ASP</a>
+    <a routerLink="gioi-thieu">ABOUT</a>
 </nav>
+
+
+<!-- Component con sẽ hiển thị ở đây -->
 <router-outlet></router-outlet>

@@ -2,30 +2,36 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ptb1',
-  imports: [],
+  standalone: false,
   templateUrl: './ptb1.html',
   styleUrl: './ptb1.css',
 })
 export class Ptb1 {
   get_solution(hsa: HTMLInputElement, hsb: HTMLInputElement, result: HTMLElement) {
-    console.log('get_solution called', hsa.value, hsb.value);
-    const a = parseFloat(hsa.value);
-    const b = parseFloat(hsb.value);
-    
-    if (isNaN(a) || a === 0) {
-      result.textContent = 'Hệ số a phải khác 0';
-      return;
+    let a = parseFloat(hsa.value);
+    let b = parseFloat(hsb.value);
+    if (a == 0 && b == 0) {
+      result.innerText = "Phuong trinh vo so nghiem";
     }
-    
-    const x = -b / a;
-    result.textContent = `x = ${x}`;
+    else if (a == 0 && b != 0) {
+      result.innerText = "Phuong trinh vo nghiem";
+    }
+    else {
+      let x = -b / a;
+      result.innerText = "" + x;
+    }
   }
-
-  clear(hsa: HTMLInputElement, hsb: HTMLInputElement, result: HTMLElement) {
-    console.log('clear called');
+  clear_solution(
+    hsa: HTMLInputElement,
+    hsb: HTMLInputElement,
+    result: HTMLElement
+  ) {
+    // Xóa dữ liệu
     hsa.value = '';
     hsb.value = '';
-    result.textContent = '';
+    result.innerText = '';
+
+    // Focus lại ô a
     hsa.focus();
   }
 }

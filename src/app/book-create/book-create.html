@@ -1,0 +1,50 @@
+<h2>Create New Book</h2>
+<p style="color: green;">{{message}}</p>
+
+<form>
+    <table>
+        <tr>
+            <td>Book Id:</td>
+            <td><input type="text" [(ngModel)]="book.BookId" name="bookId" required></td>
+        </tr>
+        <tr>
+            <td>Book Name:</td>
+            <td><input type="text" [(ngModel)]="book.BookName" name="bookName" required></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="number" [(ngModel)]="book.Price" name="price" required></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><input type="text" [(ngModel)]="book.Image" name="image" placeholder="e.g., b6.png" required></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" (click)="createBook()">Create Book</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div *ngIf="allBooks.length > 0">
+    <h3>All Books ({{allBooks.length}})</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>BookId</th>
+                <th>BookName</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of allBooks">
+                <td>{{b.BookId}}</td>
+                <td>{{b.BookName}}</td>
+                <td>{{b.Price}}</td>
+                <td>{{b.Image}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

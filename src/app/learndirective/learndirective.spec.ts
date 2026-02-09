@@ -8,9 +8,9 @@ describe('Learndirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Learndirective]
+      declarations: [Learndirective]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(Learndirective);
     component = fixture.componentInstance;
