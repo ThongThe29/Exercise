@@ -1,0 +1,39 @@
+<div class="ex50-container">
+    <div class="header">
+        <h1>📚 QUẢN LÝ THÔNG TIN SÁCH</h1>
+        <p>Exercise 50 - RESTful API Book Management</p>
+    </div>
+
+    <!-- Book List View -->
+    @if (currentView() === 'list') {
+    <app-book-list [books]="books()" [loading]="loading()" (createNew)="onCreateNew()" (edit)="onEdit($event)"
+        (viewDetails)="onViewDetails($event)" (delete)="onDeleteRequest($event)">
+    </app-book-list>
+    }
+
+    <!-- Book Form View -->
+    @if (currentView() === 'form') {
+    <app-book-form [book]="selectedBook()" [mode]="formMode()" (submit)="onFormSubmit($event)"
+        (cancel)="onFormCancel()">
+    </app-book-form>
+    }
+
+    <!-- Book Details View -->
+    @if (currentView() === 'details') {
+    <app-book-details [book]="selectedBook()" (close)="onDetailsClose()" (edit)="onEdit($event)">
+    </app-book-details>
+    }
+
+    <!-- Delete Confirmation Modal -->
+    @if (showDeleteConfirm()) {
+    <app-delete-confirm [book]="bookToDelete()" (confirm)="onDeleteConfirm()" (cancel)="onDeleteCancel()">
+    </app-delete-confirm>
+    }
+
+    <!-- Toast Notification -->
+    @if (showToast()) {
+    <div class="toast">
+        {{ toastMessage() }}
+    </div>
+    }
+</div>

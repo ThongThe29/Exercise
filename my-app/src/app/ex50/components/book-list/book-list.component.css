@@ -1,0 +1,264 @@
+.book-list-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.btn-create {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-create:hover {
+    background: #2563eb;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 4rem;
+    color: #6b7280;
+}
+
+.spinner {
+    border: 4px solid rgba(59, 130, 246, 0.3);
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    color: #6b7280;
+}
+
+.empty-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+}
+
+.empty-state p {
+    font-size: 1rem;
+}
+
+/* Table Container */
+.table-container {
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* Books Table */
+.books-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.books-table thead {
+    background: #f9fafb;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.books-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.books-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.15s ease;
+}
+
+.books-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.books-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.books-table td {
+    padding: 0.75rem 1rem;
+    color: #1f2937;
+    vertical-align: top;
+}
+
+/* Table Cell Styles */
+.book-title-cell {
+    font-weight: 500;
+    max-width: 200px;
+}
+
+.price-cell {
+    font-weight: 600;
+    color: #059669;
+    white-space: nowrap;
+}
+
+.description-cell {
+    max-width: 350px;
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+.image-cell {
+    text-align: center;
+    padding: 0.5rem !important;
+}
+
+.book-thumbnail {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.book-thumbnail:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.date-cell {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.number-cell {
+    text-align: center;
+    font-weight: 500;
+}
+
+.actions-cell {
+    white-space: nowrap;
+}
+
+/* Action Links */
+.action-links {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.action-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.edit-link {
+    color: #3b82f6;
+}
+
+.edit-link:hover {
+    color: #2563eb;
+}
+
+.details-link {
+    color: #3b82f6;
+}
+
+.details-link:hover {
+    color: #2563eb;
+}
+
+.delete-link {
+    color: #dc2626;
+}
+
+.delete-link:hover {
+    color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .description-cell {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .book-list-container {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 1.25rem;
+    }
+
+    .table-container {
+        border-radius: 0;
+    }
+
+    .books-table {
+        font-size: 0.8rem;
+    }
+
+    .books-table th,
+    .books-table td {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .description-cell {
+        max-width: 200px;
+    }
+}
