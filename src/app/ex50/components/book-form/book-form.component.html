@@ -1,0 +1,114 @@
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h2>{{ mode === 'create' ? '➕ Thêm Sách Mới' : '✏️ Chỉnh Sửa Sách' }}</h2>
+        </div>
+
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <div class="form-grid">
+                <!-- Tên Sách -->
+                <div class="form-group full-width">
+                    <label>Tên Sách <span class="required">*</span></label>
+                    <input type="text" formControlName="tenSach" placeholder="Nhập tên sách"
+                        [class.error]="isFieldInvalid('tenSach')">
+                    @if (isFieldInvalid('tenSach')) {
+                    <span class="error-message">{{ getErrorMessage('tenSach') }}</span>
+                    }
+                </div>
+
+                <!-- Giá Bán -->
+                <div class="form-group">
+                    <label>Giá Bán (VNĐ) <span class="required">*</span></label>
+                    <input type="number" formControlName="giaBan" placeholder="0"
+                        [class.error]="isFieldInvalid('giaBan')">
+                    @if (isFieldInvalid('giaBan')) {
+                    <span class="error-message">{{ getErrorMessage('giaBan') }}</span>
+                    }
+                </div>
+
+                <!-- Số Lượng Tồn -->
+                <div class="form-group">
+                    <label>Số Lượng Tồn <span class="required">*</span></label>
+                    <input type="number" formControlName="soLuongTon" placeholder="0"
+                        [class.error]="isFieldInvalid('soLuongTon')">
+                    @if (isFieldInvalid('soLuongTon')) {
+                    <span class="error-message">{{ getErrorMessage('soLuongTon') }}</span>
+                    }
+                </div>
+
+                <!-- Mã CD -->
+                <div class="form-group">
+                    <label>Mã CD <span class="required">*</span></label>
+                    <input type="number" formControlName="maCD" placeholder="0" [class.error]="isFieldInvalid('maCD')">
+                    @if (isFieldInvalid('maCD')) {
+                    <span class="error-message">{{ getErrorMessage('maCD') }}</span>
+                    }
+                </div>
+
+                <!-- Mã NXB -->
+                <div class="form-group">
+                    <label>Mã NXB <span class="required">*</span></label>
+                    <input type="number" formControlName="maNXB" placeholder="0"
+                        [class.error]="isFieldInvalid('maNXB')">
+                    @if (isFieldInvalid('maNXB')) {
+                    <span class="error-message">{{ getErrorMessage('maNXB') }}</span>
+                    }
+                </div>
+
+                <!-- Ngày Cập Nhật -->
+                <div class="form-group">
+                    <label>Ngày Cập Nhật <span class="required">*</span></label>
+                    <input type="text" formControlName="ngayCapNhat" placeholder="DD/MM/YYYY HH:MM SA"
+                        [class.error]="isFieldInvalid('ngayCapNhat')">
+                    @if (isFieldInvalid('ngayCapNhat')) {
+                    <span class="error-message">{{ getErrorMessage('ngayCapNhat') }}</span>
+                    }
+                    <p class="help-text">Định dạng: DD/MM/YYYY HH:MM SA (ví dụ: 25/10/2014 12:00 SA)</p>
+                </div>
+
+                <!-- Mô Tả -->
+                <div class="form-group full-width">
+                    <label>Mô Tả <span class="required">*</span></label>
+                    <textarea formControlName="moTa" rows="4" placeholder="Nhập mô tả sách"
+                        [class.error]="isFieldInvalid('moTa')"></textarea>
+                    @if (isFieldInvalid('moTa')) {
+                    <span class="error-message">{{ getErrorMessage('moTa') }}</span>
+                    }
+                </div>
+
+                <!-- Ảnh Bìa -->
+                <div class="form-group full-width">
+                    <label>Ảnh Bìa <span class="required">*</span></label>
+                    <input type="text" formControlName="anhBia" placeholder="Ví dụ: THCB.jpg"
+                        (input)="onImageChange($event)" [class.error]="isFieldInvalid('anhBia')">
+                    @if (isFieldInvalid('anhBia')) {
+                    <span class="error-message">{{ getErrorMessage('anhBia') }}</span>
+                    }
+                    <p class="help-text">Nhập tên file ảnh (ảnh phải có trong thư mục my-service/public/images/books/)
+                    </p>
+                </div>
+
+                <!-- Image Preview -->
+                @if (imagePreview) {
+                <div class="form-group full-width">
+                    <label>Xem Trước</label>
+                    <div class="image-preview">
+                        <img [src]="imagePreview" alt="Preview"
+                            onerror="this.src='https://via.placeholder.com/200x280?text=No+Image'">
+                    </div>
+                </div>
+                }
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-cancel" (click)="onCancel()">
+                    ❌ Hủy
+                </button>
+                <button type="submit" class="btn btn-submit">
+                    {{ mode === 'create' ? '✅ Tạo Mới' : '💾 Cập Nhật' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

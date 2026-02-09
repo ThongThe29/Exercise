@@ -18,6 +18,10 @@ import { Ex28 } from './ex28/ex28';
 import { TemplateFormComponent } from './template-form/template-form';
 import { ReactiveFormComponent } from './reactive-form/reactive-form';
 import { Books } from './books/books';
+import { BookDetail } from './book-detail/book-detail';
+import { BookCreate } from './book-create/book-create';
+import { FileUpload } from './file-upload/file-upload';
+import { BookNewComponent } from './book-new/book-new';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -62,6 +66,17 @@ export const routes: Routes = [
   { path: "books", component: Books },
   { path: "ex39", component: Books },
 
-  // Wildcard - route không tìm thấy
+  // Book Detail route (Exercise 41)
+  { path: "book-detail/:id", component: BookDetail },  // Route with ID parameter
+  { path: "ex41", component: BookDetail },  // Ex41 - Book Detail Search
+  { path: "ex42", component: BookCreate },  // Ex42 - Create Book
+  { path: "ex43", component: BookNewComponent },  // Ex43 - Create Book with Auto-Refresh
+  { path: "ex49", component: FileUpload },  // Ex49 - File Upload with Progress
+  {
+    path: "ex50",
+    loadComponent: () => import('./ex50/ex50.component').then(m => m.Ex50Component)
+  },  // Ex50 - RESTful API Book Management
+
+  // ⭐ Route wildcard - phải để cuối cùng
   { path: "**", component: Notfound }
 ];

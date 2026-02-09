@@ -1,0 +1,18 @@
+<div class="modal-overlay">
+    <div class="modal-dialog">
+        <div class="warning-icon">⚠️</div>
+        <h2>Xác Nhận Xóa</h2>
+        @if (book) {
+        <p>Bạn có chắc chắn muốn xóa sách <strong>"{{ book.tenSach }}"</strong> không?</p>
+        <p class="warning-text">Hành động này không thể hoàn tác!</p>
+        }
+        <div class="dialog-actions">
+            <button type="button" class="btn btn-cancel" (click)="onCancel()">
+                ❌ Hủy
+            </button>
+            <button type="button" class="btn btn-delete" (click)="onConfirm()">
+                🗑️ Xóa
+            </button>
+        </div>
+    </div>
+</div>

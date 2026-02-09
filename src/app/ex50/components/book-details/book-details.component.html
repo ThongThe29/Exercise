@@ -1,0 +1,65 @@
+<div class="modal-overlay" (click)="onClose()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        @if (book) {
+        <div class="modal-header">
+            <h2>📖 Chi Tiết Sách</h2>
+            <button class="btn-close" (click)="onClose()">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="details-grid">
+                <!-- Book Image -->
+                <div class="book-cover">
+                    <img [src]="getImageUrl(book.anhBia)" [alt]="book.tenSach"
+                        onerror="this.src='https://via.placeholder.com/300x420?text=No+Image'">
+                </div>
+
+                <!-- Book Information -->
+                <div class="book-details">
+                    <h1 class="book-title">{{ book.tenSach }}</h1>
+                    <div class="price-badge">{{ formatPrice(book.giaBan) }}</div>
+
+                    <div class="detail-row">
+                        <span class="label">📅 Ngày cập nhật:</span>
+                        <span class="value">{{ book.ngayCapNhat }}</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="label">📦 Số lượng tồn:</span>
+                        <span class="value">{{ book.soLuongTon }}</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="label">💿 Mã CD:</span>
+                        <span class="value">{{ book.maCD }}</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="label">🏢 Mã NXB:</span>
+                        <span class="value">{{ book.maNXB }}</span>
+                    </div>
+
+                    <div class="detail-row">
+                        <span class="label">🖼️ Ảnh bìa:</span>
+                        <span class="value">{{ book.anhBia }}</span>
+                    </div>
+
+                    <div class="description-section">
+                        <h3>📝 Mô tả</h3>
+                        <p>{{ book.moTa }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-edit" (click)="onEdit()">
+                ✏️ Chỉnh Sửa
+            </button>
+            <button class="btn btn-close-action" (click)="onClose()">
+                Đóng
+            </button>
+        </div>
+        }
+    </div>
+</div>
