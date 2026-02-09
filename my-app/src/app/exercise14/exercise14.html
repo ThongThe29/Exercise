@@ -1,0 +1,33 @@
+<h3>Exercise 14: Product Catalog</h3>
+
+<table border="1" *ngFor="let cate of categories">
+    <!-- Category Header -->
+    <thead>
+        <tr>
+            <th>Ma Danh Muc</th>
+            <th colspan="4">Ten Danh Muc</th>
+        </tr>
+        <tr>
+            <td>{{ cate.Cateid }}</td>
+            <td colspan="4">{{ cate.CateName }}</td>
+        </tr>
+    </thead>
+
+    <!-- Products Table -->
+    <tbody>
+        <tr style="background-color: #f0f0f0;">
+            <th>Ma San Pham</th>
+            <th>Ten San Pham</th>
+            <th>Gia San Pham</th>
+            <th>Picture</th>
+        </tr>
+        <tr *ngFor="let product of cate.Products">
+            <td>{{ product.ProductId }}</td>
+            <td>{{ product.ProductName }}</td>
+            <td>{{ product.Price }}</td>
+            <td>
+                <img [src]="product.Image" alt="{{ product.ProductName }}" width="50" height="50">
+            </td>
+        </tr>
+    </tbody>
+</table>

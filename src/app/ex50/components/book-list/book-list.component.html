@@ -1,0 +1,60 @@
+<div class="book-list-container">
+    <div class="toolbar">
+        <button class="btn-create" (click)="onCreateNew()">
+            ➕ Create New
+        </button>
+    </div>
+
+    <!-- Loading State -->
+    @if (loading) {
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Đang tải danh sách sách...</p>
+    </div>
+    }
+
+    <!-- Empty State -->
+    @else if (books.length === 0) {
+    <div class="empty-state">
+        <div class="empty-icon">📚</div>
+        <h3>Chưa có sách nào</h3>
+        <p>Nhấn "Create New" để thêm sách mới</p>
+    </div>
+    }
+
+    <!-- Books Grid -->
+    @else {
+    <div class="books-grid">
+        @for (book of books; track book.id) {
+        <div class="book-card">
+            <div class="book-image">
+                <img [src]="getImageUrl(book.anhBia)" [alt]="book.tenSach"
+                    onerror="this.src='https://via.placeholder.com/200x280?text=No+Image'">
+            </div>
+
+            <div class="book-info">
+                <h3 class="book-title">{{ book.tenSach }}</h3>
+                <p class="book-price">{{ formatPrice(book.gia) }}</p>
+                <div class="book-meta">
+                    <span>📖 {{ book.soTrang }} trang</span>
+                    <span>📅 {{ formatDate(book.ngayXuatBan) }}</span>
+                </div>
+                <p class="book-description">{{ book.moTa.substring(0, 100) }}...</p>
+            </div>
+
+            <div class="book-actions">
+                <button class="btn btn-details" (click)="onViewDetails(book)" title="Xem chi tiết">
+                    👁️ Details
+                </button>
+                <button class="btn btn-edit" (click)="onEdit(book)" title="Chỉnh sửa">
+                    ✏️ Edit
+                </button>
+                <button class="btn btn-delete" (click)="onDelete(book)" title="Xóa">
+                    🗑️ Delete
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>

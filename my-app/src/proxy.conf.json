@@ -1,0 +1,41 @@
+[
+    {
+        "context": [
+            "/products"
+        ],
+        "target": "https://fakestoreapi.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    {
+        "context": [
+            "/api/bitcoin"
+        ],
+        "target": "https://api.alternative.me",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/bitcoin": "/v1/ticker/?limit=1"
+        },
+        "logLevel": "debug"
+    },
+    {
+        "context": [
+            "/books"
+        ],
+        "target": "http://localhost:3000",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    {
+        "context": [
+            "/upload"
+        ],
+        "target": "http://localhost:3001",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+]
