@@ -1,0 +1,32 @@
+<div class="payment-container">
+  <div class="payment-card">
+    <div class="payment-header">
+      <svg class="momo-logo" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#A50064"/>
+        <text x="40" y="53" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="36" fill="white">M</text>
+      </svg>
+      <h2>Thanh toán qua MoMo</h2>
+    </div>
+
+    <div class="payment-body">
+      <div class="order-summary">
+        <h3>Thông tin đơn hàng</h3>
+        <p><strong>Sản phẩm:</strong> Gói Premium Subscription</p>
+        <p><strong>Mã đơn hàng:</strong> #MOMO{{amount}}</p>
+        <div class="price-row">
+          <span>Tổng thành tiền:</span>
+          <span class="price-amount">{{ amount | number:'1.0-0' }} VNĐ</span>
+        </div>
+      </div>
+
+      <div *ngIf="errorMsg" class="error-alert">
+        {{ errorMsg }}
+      </div>
+
+      <button class="momo-btn" (click)="payWithMoMo()" [disabled]="loading">
+        <span *ngIf="!loading">Thanh toán bằng MoMo</span>
+        <span *ngIf="loading" class="spinner">Đang xử lý...</span>
+      </button>
+    </div>
+  </div>
+</div>

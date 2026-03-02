@@ -37,5 +37,23 @@
         "secure": true,
         "changeOrigin": true,
         "logLevel": "debug"
+    },
+    {
+        "context": [
+            "/fashions"
+        ],
+        "target": "http://localhost:3000",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    {
+        "context": [
+            "/payment"
+        ],
+        "target": "http://localhost:3000",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
     }
 ]

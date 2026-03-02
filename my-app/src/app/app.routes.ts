@@ -22,6 +22,11 @@ import { BookDetail } from './book-detail/book-detail';
 import { BookCreate } from './book-create/book-create';
 import { FileUpload } from './file-upload/file-upload';
 import { BookNewComponent } from './book-new/book-new';
+import { BookUpdate } from './book-update/book-update';
+import { BookDelete } from './book-delete/book-delete';
+import { FashionComponent } from './fashion.component/fashion.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentResultComponent } from './payment-result/payment-result.component';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -71,11 +76,19 @@ export const routes: Routes = [
   { path: "ex41", component: BookDetail },  // Ex41 - Book Detail Search
   { path: "ex42", component: BookCreate },  // Ex42 - Create Book
   { path: "ex43", component: BookNewComponent },  // Ex43 - Create Book with Auto-Refresh
+  { path: "ex45", component: BookUpdate },  // Ex45 - Update Book (HTTP PUT)
+  { path: "ex47", component: BookDelete },  // Ex47 - Delete Book (HTTP DELETE)
+  { path: "ex53", component: FashionComponent },  // Ex53 - Fashions (MongoDB)
+  { path: "fashions", component: FashionComponent },
   { path: "ex49", component: FileUpload },  // Ex49 - File Upload with Progress
   {
     path: "ex50",
     loadComponent: () => import('./ex50/ex50.component').then(m => m.Ex50Component)
   },  // Ex50 - RESTful API Book Management
+
+  // MoMo Payment routes
+  { path: "payment", component: PaymentComponent },
+  { path: "payment-result", component: PaymentResultComponent },
 
   // ⭐ Route wildcard - phải để cuối cùng
   { path: "**", component: Notfound }

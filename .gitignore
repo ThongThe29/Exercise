@@ -6,10 +6,18 @@
 /out-tsc
 /bazel-out
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Node - ignore node_modules in ALL subdirectories
+**/node_modules
+**/npm-debug.log
+**/yarn-error.log
+**/package-lock.json
+
+# Build logs
+*.log
+build_error.log
+build_log.txt
+error.log
+global_error.log
 
 # IDEs and editors
 .idea/
