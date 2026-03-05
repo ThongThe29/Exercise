@@ -25,8 +25,11 @@ import { BookNewComponent } from './book-new/book-new';
 import { BookUpdate } from './book-update/book-update';
 import { BookDelete } from './book-delete/book-delete';
 import { FashionComponent } from './fashion.component/fashion.component';
+import { FashionDetail } from './fashion-detail/fashion-detail';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentResultComponent } from './payment-result/payment-result.component';
+import { LoginComponent } from './login/login';
+import { Ex63Component } from './ex63/ex63';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -80,6 +83,7 @@ export const routes: Routes = [
   { path: "ex47", component: BookDelete },  // Ex47 - Delete Book (HTTP DELETE)
   { path: "ex53", component: FashionComponent },  // Ex53 - Fashions (MongoDB)
   { path: "fashions", component: FashionComponent },
+  { path: "ex54", component: FashionDetail },  // Ex54 - Fashion Detail (Get by Id)
   { path: "ex49", component: FileUpload },  // Ex49 - File Upload with Progress
   {
     path: "ex50",
@@ -89,6 +93,8 @@ export const routes: Routes = [
   // MoMo Payment routes
   { path: "payment", component: PaymentComponent },
   { path: "payment-result", component: PaymentResultComponent },
+  { path: "ex61", component: LoginComponent },  // Ex61 - Login with Cookies
+  { path: "ex63", component: Ex63Component },  // Ex63 - Shopping Cart with Session
 
   // ⭐ Route wildcard - phải để cuối cùng
   { path: "**", component: Notfound }
