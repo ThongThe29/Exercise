@@ -6,17 +6,31 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-books',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './books.html',
   styleUrl: './books.css',
 })
 export class Books {
   books: any;
   errMessage: string = ''
+
   constructor(private _service: BookAPIService) {
+    this.loadBooks();
+  }
+
+  loadBooks() {
     this._service.getBooks().subscribe({
       next: (data) => { this.books = data },
       error: (err) => { this.errMessage = err }
     })
+  }
+
+  deleteBook(id: number) {
+    if (confirm('Bạn có chắc muốn xóa sách này không?')) {
+      this._service.deleteBook(id).subscribe({
+        next: () => { this.loadBooks() },
+        error: (err) => { this.errMessage = err }
+      })
+    }
   }
 }

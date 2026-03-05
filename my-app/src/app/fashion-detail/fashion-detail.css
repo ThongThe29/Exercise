@@ -1,0 +1,25 @@
+table {
+    font-family: Arial, sans-serif;
+    margin-top: 16px;
+}
+
+table td {
+    padding: 8px 12px;
+}
+
+table td:first-child {
+    color: darkorange;
+    font-weight: bold;
+    width: 160px;
+}
+
+button {
+    margin-left: 8px;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    width: 280px;
+    padding: 4px 8px;
+}

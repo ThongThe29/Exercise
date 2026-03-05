@@ -1,0 +1,51 @@
+<p *ngIf="errMessage!=''">Error: {{errMessage}}</p>
+
+<table>
+    <tr>
+        <td>Book Id:</td>
+        <td>
+            <input type="text" class="form-control" #name="ngModel" name="BookId" id="BookId" placeholder="Nhập Book Id"
+                [(ngModel)]="book.BookId" />
+        </td>
+    </tr>
+    <tr>
+        <td>Book Name:</td>
+        <td>
+            <input type="text" class="form-control" #name="ngModel" name="BookName" id="BookName"
+                placeholder="Nhập Book Name" [(ngModel)]="book.BookName" />
+        </td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td>
+            <input type="text" class="form-control" #name="ngModel" name="Price" id="Price" placeholder="0"
+                [(ngModel)]="book.Price" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="putBook()">Update</button>
+        </td>
+    </tr>
+</table>
+
+<table border="1" style="width:100%">
+    <thead>
+        <tr>
+            <th>BookId</th>
+            <th>BookName</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.id}}</td>
+            <td>{{book.tenSach}}</td>
+            <td>{{book.giaBan}}</td>
+            <td>
+                <img src="http://localhost:3000/images/books/{{book.anhBia}}" width="50px" height="50px">
+            </td>
+        </tr>
+    </tbody>
+</table>

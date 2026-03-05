@@ -22,6 +22,7 @@ import { BookDetail } from './book-detail/book-detail';
 import { BookCreate } from './book-create/book-create';
 import { FileUpload } from './file-upload/file-upload';
 import { BookNewComponent } from './book-new/book-new';
+import { LoginComponent } from './login/login';
 
 export const routes: Routes = [
   // ⭐ Route mặc định - khi vào localhost:4200 sẽ chuyển đến /demo
@@ -76,6 +77,7 @@ export const routes: Routes = [
     path: "ex50",
     loadComponent: () => import('./ex50/ex50.component').then(m => m.Ex50Component)
   },  // Ex50 - RESTful API Book Management
+  { path: "ex61", component: LoginComponent },  // Ex61 - Login with Cookies
 
   // ⭐ Route wildcard - phải để cuối cùng
   { path: "**", component: Notfound }

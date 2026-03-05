@@ -1,0 +1,23 @@
+<p>fashion-detail works!</p>
+<p style="color:red">{{errMessage}}</p>
+
+<p>Fashion ID: <input type="text" #fashionId> <button (click)="searchFashion(fashionId.value)">Search</button></p>
+
+<table *ngIf="fashion" border="1" style="border-collapse:collapse; width:60%">
+    <tr>
+        <td><b>Fashion Id:</b></td>
+        <td>{{fashion?._id}}</td>
+    </tr>
+    <tr>
+        <td><b>Fashion Subject:</b></td>
+        <td>{{fashion?.fashion_subject}}</td>
+    </tr>
+    <tr>
+        <td><b>Fashion Detail:</b></td>
+        <td>{{fashion?.fashion_detail}}</td>
+    </tr>
+    <tr *ngIf="fashion?.fashion_image">
+        <td><b>Fashion Image:</b></td>
+        <td><img [src]="fashion.fashion_image" width="200px"></td>
+    </tr>
+</table>

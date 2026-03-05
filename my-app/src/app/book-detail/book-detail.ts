@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { BookAPIService } from '../book-apiservice';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-book-detail',
-  imports: [],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './book-detail.html',
   styleUrl: './book-detail.css',
 })
