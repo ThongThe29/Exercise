@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="adminApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Fashion Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+        .thumbnail-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .preview-img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        #quill-editor {
+            height: 300px;
+        }
+
+        .details-content img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body ng-controller="AdminController" ng-cloak>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" ng-click="showList()">Admin Fashion Management</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <!-- LIST VIEW -->
+        <div ng-show="currentView === 'list'">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Fashion List</h2>
+                <button class="btn btn-success" ng-click="showForm()">+ Add a new Fashion</button>
+            </div>
+
+            <table class="table table-bordered table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th width="10%">Thumbnail</th>
+                        <th width="20%">Title</th>
+                        <th width="15%">Style</th>
+                        <th width="20%">Creation Date</th>
+                        <th width="35%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="fashion in fashions">
+                        <td><img ng-src="{{fashion.thumbnail}}" class="thumbnail-img" alt="Thumbnail"></td>
+                        <td>{{fashion.title}}</td>
+                        <td><span class="badge bg-secondary">{{fashion.style}}</span></td>
+                        <td>{{fashion.created_at | date:'medium'}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info text-white" ng-click="viewDetail(fashion)">View</button>
+                            <button class="btn btn-sm btn-warning" ng-click="editFashion(fashion)">Edit</button>
+                            <button class="btn btn-sm btn-danger" ng-click="deleteFashion(fashion._id)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr ng-if="fashions.length === 0">
+                        <td colspan="5" class="text-center">No fashion items found.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FORM VIEW (ADD / EDIT) -->
+        <div ng-show="currentView === 'form'">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>{{formMode === 'add' ? 'Add New Fashion' : 'Edit Fashion'}}</h2>
+                <button class="btn btn-outline-secondary" ng-click="showList()">Cancel & Back</button>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form ng-submit="saveFashion()">
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control" ng-model="currentFashion.title" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Style</label>
+                                <select class="form-select" ng-model="currentFashion.style" required>
+                                    <option value="">-- Select Style --</option>
+                                    <option value="Casual">Casual</option>
+                                    <option value="Formal">Formal</option>
+                                    <option value="Street Style">Street Style</option>
+                                    <option value="Vintage">Vintage</option>
+                                    <option value="Streetwear">Streetwear</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Thumbnail URL</label>
+                                <input type="text" class="form-control" ng-model="currentFashion.thumbnail" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Fashion Details (WYSIWYG Editor)</label>
+                            <!-- Quill wrapper directive -->
+                            <quill-editor ng-model="currentFashion.details"></quill-editor>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save Fashion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- DETAIL VIEW -->
+        <div ng-show="currentView === 'detail' && currentFashion">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Fashion Details</h2>
+                <button class="btn btn-outline-secondary" ng-click="showList()">Back to List</button>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-3">
+                            <img ng-src="{{currentFashion.thumbnail}}" class="preview-img mb-2" alt="Thumbnail">
+                            <br>
+                            <span class="badge bg-primary fs-6">{{currentFashion.style}}</span>
+                        </div>
+                        <div class="col-md-8">
+                            <h3 class="card-title">{{currentFashion.title}}</h3>
+                            <p class="text-muted"><small>Created on: {{currentFashion.created_at |
+                                    date:'medium'}}</small></p>
+                            <hr>
+                            <div class="details-content mt-3" ng-bind-html="trustAsHtml(currentFashion.details)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white text-end">
+                    <button class="btn btn-warning" ng-click="editFashion(currentFashion)">Edit this item</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
